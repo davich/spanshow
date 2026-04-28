@@ -1,0 +1,4 @@
+[
+  { "id": "breaking-bad", "title": "Breaking Bad", "seasons": { "1": 2 } },
+  { "id": "the-office",   "title": "The Office",   "seasons": { "1": 1 } }
+]
