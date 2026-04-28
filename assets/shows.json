@@ -1,4 +1,5 @@
 [
-  { "id": "breaking-bad", "title": "Breaking Bad", "seasons": { "1": 2 } },
-  { "id": "the-office",   "title": "The Office",   "seasons": { "1": 1 } }
+  { "id": "breaking-bad",           "title": "Breaking Bad",             "seasons": { "1": 2 } },
+  { "id": "the-office",             "title": "The Office",               "seasons": { "1": 1 } },
+  { "id": "flight-of-the-conchords","title": "Flight of the Conchords",  "seasons": { "1": 12, "2": 10 } }
 ]
