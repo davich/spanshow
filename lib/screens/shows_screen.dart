@@ -21,7 +21,7 @@ class ShowsScreen extends StatelessWidget {
           }
           final shows = snapshot.data!;
           return ListView.separated(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.fromLTRB(16, 16, 16, 16 + MediaQuery.of(context).padding.bottom),
             itemCount: shows.length,
             separatorBuilder: (_, _) => const SizedBox(height: 8),
             itemBuilder: (context, index) {

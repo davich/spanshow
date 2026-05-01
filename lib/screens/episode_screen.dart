@@ -58,7 +58,7 @@ class EpisodeScreen extends StatelessWidget {
               const Divider(height: 1),
               Expanded(
                 child: ListView.builder(
-                  padding: const EdgeInsets.all(16),
+                  padding: EdgeInsets.fromLTRB(16, 16, 16, 16 + MediaQuery.of(context).padding.bottom),
                   itemCount: episode.paragraphs.length,
                   itemBuilder: (context, index) =>
                       ParagraphTile(paragraph: episode.paragraphs[index]),

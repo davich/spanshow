@@ -1,5 +1,7 @@
 [
   { "id": "breaking-bad",           "title": "Breaking Bad",             "seasons": { "1": 2 } },
   { "id": "the-office",             "title": "The Office",               "seasons": { "1": 1 } },
-  { "id": "flight-of-the-conchords","title": "Flight of the Conchords",  "seasons": { "1": 12, "2": 10 } }
+  { "id": "flight-of-the-conchords","title": "Flight of the Conchords",  "seasons": { "1": 12, "2": 10 } },
+  { "id": "white-lotus",            "title": "The White Lotus",          "seasons": { "2": 7 } },
+  { "id": "the-last-of-us",         "title": "The Last of Us",           "seasons": { "1": 9 } }
 ]
