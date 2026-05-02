@@ -1,0 +1,29 @@
+{
+  "id": "page-start",
+  "paragraphs": [
+    {
+      "es": "Estás en un bosque antiguo. El sol brilla entre los árboles y los pájaros cantan.",
+      "en": "You are in an ancient forest. The sun shines through the trees and the birds sing."
+    },
+    {
+      "es": "Encuentras un mapa viejo en el suelo. El mapa muestra dos caminos desde este lugar.",
+      "en": "You find an old map on the ground. The map shows two paths from this place."
+    },
+    {
+      "es": "Un camino va al norte, hacia el río. El otro camino va al este, hacia las montañas.",
+      "en": "One path goes north, toward the river. The other path goes east, toward the mountains."
+    }
+  ],
+  "choices": [
+    {
+      "es": "Sigues el camino del norte.",
+      "en": "You follow the north path.",
+      "target": "page-north-path"
+    },
+    {
+      "es": "Tomas el camino del este.",
+      "en": "You take the east path.",
+      "target": "page-east-path"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "page-follow-bank",
+  "paragraphs": [
+    {
+      "es": "Caminas por el sendero a lo largo del río. El agua hace un sonido tranquilo.",
+      "en": "You walk along the trail by the river. The water makes a calm sound."
+    },
+    {
+      "es": "El sendero lleva a un claro en el bosque. Hay una casa vieja y abandonada entre los árboles.",
+      "en": "The trail leads to a clearing in the forest. There is an old, abandoned house among the trees."
+    },
+    {
+      "es": "Las paredes son de piedra gris. La puerta de madera está abierta. Hay silencio adentro.",
+      "en": "The walls are made of grey stone. The wooden door is open. There is silence inside."
+    }
+  ],
+  "choices": [
+    {
+      "es": "Entras a la casa para investigar.",
+      "en": "You enter the house to investigate.",
+      "target": "page-enter-house"
+    },
+    {
+      "es": "Continúas por el sendero sin entrar.",
+      "en": "You continue along the trail without entering.",
+      "target": "page-lost-in-forest"
+    }
+  ]
+}

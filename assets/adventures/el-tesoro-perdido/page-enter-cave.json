@@ -1,0 +1,26 @@
+{
+  "id": "page-enter-cave",
+  "paragraphs": [
+    {
+      "es": "Entras a la cueva. El suelo es húmedo y frío bajo tus pies.",
+      "en": "You enter the cave. The ground is damp and cold under your feet."
+    },
+    {
+      "es": "Usas el teléfono como linterna. Las paredes brillan con minerales de colores.",
+      "en": "You use your phone as a flashlight. The walls glitter with coloured minerals."
+    },
+    {
+      "es": "Al fondo de la cueva, ves algo grande cubierto de polvo y tierra.",
+      "en": "At the back of the cave, you see something large covered in dust and earth."
+    },
+    {
+      "es": "Es un baúl enorme. Está cerrado con una cerradura vieja y oxidada.",
+      "en": "It is an enormous trunk. It is locked with an old, rusted lock."
+    },
+    {
+      "es": "Rompes la cerradura con una piedra. El baúl está lleno de monedas de oro y collares de perlas. ¡Encuentras el tesoro perdido!",
+      "en": "You break the lock with a rock. The trunk is full of gold coins and pearl necklaces. You find the lost treasure!"
+    }
+  ],
+  "choices": []
+}

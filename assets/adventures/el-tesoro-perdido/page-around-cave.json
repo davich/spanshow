@@ -1,0 +1,29 @@
+{
+  "id": "page-around-cave",
+  "paragraphs": [
+    {
+      "es": "Caminas alrededor de la cueva con mucho cuidado.",
+      "en": "You walk around the cave very carefully."
+    },
+    {
+      "es": "Al otro lado, el bosque se abre. Hay una colina alta delante de ti.",
+      "en": "On the other side, the forest opens up. There is a tall hill in front of you."
+    },
+    {
+      "es": "Desde aquí, puedes ver el río en la distancia. Hay algo que brilla cerca del agua.",
+      "en": "From here, you can see the river in the distance. There is something that shines near the water."
+    }
+  ],
+  "choices": [
+    {
+      "es": "Subes a la colina para ver mejor.",
+      "en": "You climb the hill to see better.",
+      "target": "page-top-of-hill"
+    },
+    {
+      "es": "Vuelves atrás y tomas el camino del norte.",
+      "en": "You turn back and take the north path.",
+      "target": "page-north-path"
+    }
+  ]
+}

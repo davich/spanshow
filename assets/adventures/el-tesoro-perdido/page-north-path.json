@@ -1,0 +1,29 @@
+{
+  "id": "page-north-path",
+  "paragraphs": [
+    {
+      "es": "Caminas hacia el norte. Los árboles son altos y el aire es fresco.",
+      "en": "You walk north. The trees are tall and the air is fresh."
+    },
+    {
+      "es": "Llegas a un río grande. El agua es azul y clara. Hay peces que nadan debajo.",
+      "en": "You arrive at a large river. The water is blue and clear. There are fish swimming below."
+    },
+    {
+      "es": "Ves una balsa de madera cerca de la orilla. También hay un sendero que sigue el río hacia el sur.",
+      "en": "You see a wooden raft near the bank. There is also a trail that follows the river to the south."
+    }
+  ],
+  "choices": [
+    {
+      "es": "Usas la balsa para cruzar el río.",
+      "en": "You use the raft to cross the river.",
+      "target": "page-cross-river"
+    },
+    {
+      "es": "Sigues el sendero a lo largo de la orilla.",
+      "en": "You follow the trail along the bank.",
+      "target": "page-follow-bank"
+    }
+  ]
+}
