@@ -1,0 +1,30 @@
+{
+  "id": "page-enter-house",
+  "paragraphs": [
+    {
+      "es": "Entras a la casa con precaución. Hay muebles viejos cubiertos de polvo.",
+      "en": "You enter the house with caution. There is old furniture covered in dust."
+    },
+    {
+      "es": "Una escalera de madera lleva al piso de arriba. Las paredes tienen cuadros viejos.",
+      "en": "A wooden staircase leads to the upper floor. The walls have old paintings."
+    },
+    {
+      "es": "En la mesa del comedor encuentras un diario. Está escrito con letra muy pequeña.",
+      "en": "On the dining table you find a diary. It is written in very small handwriting."
+    },
+    {
+      "es": "El diario dice: «El tesoro está debajo del árbol más grande del bosque, cerca del río.»",
+      "en": "The diary says: \"The treasure is under the biggest tree in the forest, near the river.\""
+    },
+    {
+      "es": "Sales de la casa y buscas el árbol más grande. Lo encuentras al lado del río.",
+      "en": "You leave the house and look for the biggest tree. You find it beside the river."
+    },
+    {
+      "es": "Cavas debajo del árbol y encuentras un cofre lleno de joyas y monedas de plata y oro. ¡El tesoro es tuyo!",
+      "en": "You dig under the tree and find a chest full of jewels and silver and gold coins. The treasure is yours!"
+    }
+  ],
+  "choices": []
+}

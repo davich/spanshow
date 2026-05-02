@@ -1,0 +1,26 @@
+{
+  "id": "page-lost-in-forest",
+  "paragraphs": [
+    {
+      "es": "Continúas por el sendero, pero el camino desaparece entre los árboles.",
+      "en": "You continue along the trail, but the path disappears among the trees."
+    },
+    {
+      "es": "Caminas durante horas. El sol comienza a bajar y el bosque se oscurece.",
+      "en": "You walk for hours. The sun begins to set and the forest grows dark."
+    },
+    {
+      "es": "Estás perdido. Sin mapa y sin brújula, no sabes qué dirección tomar.",
+      "en": "You are lost. Without a map and without a compass, you don't know which direction to take."
+    },
+    {
+      "es": "Decides quedarte en el mismo lugar y esperar hasta el amanecer.",
+      "en": "You decide to stay in the same place and wait until dawn."
+    },
+    {
+      "es": "El tesoro puede esperar otro día. Hoy, lo más importante es estar seguro.",
+      "en": "The treasure can wait another day. Today, the most important thing is to be safe."
+    }
+  ],
+  "choices": []
+}

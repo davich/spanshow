@@ -1,0 +1,29 @@
+{
+  "id": "page-east-path",
+  "paragraphs": [
+    {
+      "es": "Caminas hacia el este. Los árboles son muy altos aquí y hay menos luz.",
+      "en": "You walk east. The trees are very tall here and there is less light."
+    },
+    {
+      "es": "El bosque se vuelve más oscuro y silencioso. Ves una cueva en la roca.",
+      "en": "The forest becomes darker and quieter. You see a cave in the rock."
+    },
+    {
+      "es": "Escuchas un sonido extraño desde adentro. ¿Es el viento? ¿O es algo más?",
+      "en": "You hear a strange sound from inside. Is it the wind? Or is it something more?"
+    }
+  ],
+  "choices": [
+    {
+      "es": "Entras a la cueva con cuidado.",
+      "en": "You enter the cave carefully.",
+      "target": "page-enter-cave"
+    },
+    {
+      "es": "Rodeas la cueva y continúas por el bosque.",
+      "en": "You go around the cave and continue through the forest.",
+      "target": "page-around-cave"
+    }
+  ]
+}

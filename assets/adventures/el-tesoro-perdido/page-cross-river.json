@@ -1,0 +1,26 @@
+{
+  "id": "page-cross-river",
+  "paragraphs": [
+    {
+      "es": "Subes a la balsa y remas con cuidado. El río es tranquilo hoy.",
+      "en": "You get on the raft and row carefully. The river is calm today."
+    },
+    {
+      "es": "Cruzas el río sin problemas y llegas a la otra orilla.",
+      "en": "You cross the river without problems and reach the other bank."
+    },
+    {
+      "es": "Algo brilla entre las piedras cerca del agua. Te acercas para ver.",
+      "en": "Something shines among the rocks near the water. You go closer to look."
+    },
+    {
+      "es": "Limpias la suciedad y encuentras un cofre de madera con decoraciones de oro.",
+      "en": "You clean off the dirt and find a wooden chest with gold decorations."
+    },
+    {
+      "es": "Abres el cofre. Está lleno de monedas antiguas y joyas que brillan con la luz del sol. ¡Encuentras el tesoro perdido!",
+      "en": "You open the chest. It is full of ancient coins and jewels that shine in the sunlight. You find the lost treasure!"
+    }
+  ],
+  "choices": []
+}

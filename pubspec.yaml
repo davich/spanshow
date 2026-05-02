@@ -60,11 +60,13 @@ flutter:
 
   assets:
     - assets/shows.json
+    - assets/adventures.json
     - assets/content/breaking-bad/
     - assets/content/the-office/
     - assets/content/flight-of-the-conchords/
     - assets/content/white-lotus/
     - assets/content/the-last-of-us/
+    - assets/adventures/el-tesoro-perdido/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
