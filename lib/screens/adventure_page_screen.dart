@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import '../data/content_repository.dart';
 import '../models/adventure_page.dart';
+import '../models/adventure_progress.dart';
 import '../models/adventure_story.dart';
+import '../services/progress_service.dart';
 import '../widgets/paragraph_tile.dart';
 import '../widgets/choice_tile.dart';
 
@@ -41,6 +43,10 @@ class _AdventurePageScreenState extends State<AdventurePageScreen> {
         _page = page;
         _loading = false;
       });
+      await ProgressService.saveAdventureProgress(
+        widget.story.id,
+        AdventureProgress(pageId: widget.pageId),
+      );
     } catch (e) {
       if (!mounted) return;
       setState(() {
@@ -62,10 +68,58 @@ class _AdventurePageScreenState extends State<AdventurePageScreen> {
     );
   }
 
+  Future<void> _confirmRestart() async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Reiniciar historia'),
+        content: const Text('¿Empezar desde el principio?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: const Text('Cancelar'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            child: const Text('Reiniciar'),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true || !mounted) return;
+    await ProgressService.clearAdventureProgress(widget.story.id);
+    if (!mounted) return;
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (_) => AdventurePageScreen(
+          story: widget.story,
+          pageId: widget.story.startPageId,
+        ),
+      ),
+      (route) => route.isFirst,
+    );
+  }
+
+  Future<void> _finishAndRestart() async {
+    await ProgressService.clearAdventureProgress(widget.story.id);
+    if (!mounted) return;
+    Navigator.popUntil(context, (route) => route.isFirst);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.story.title)),
+      appBar: AppBar(
+        title: Text(widget.story.title),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.restart_alt),
+            tooltip: 'Reiniciar',
+            onPressed: _confirmRestart,
+          ),
+        ],
+      ),
       body: _buildBody(context),
     );
   }
@@ -127,9 +181,7 @@ class _AdventurePageScreenState extends State<AdventurePageScreen> {
                   child: TextButton.icon(
                     icon: const Icon(Icons.replay),
                     label: const Text('Empezar de nuevo'),
-                    onPressed: () {
-                      Navigator.popUntil(context, (route) => route.isFirst);
-                    },
+                    onPressed: _finishAndRestart,
                   ),
                 ),
               ] else ...[

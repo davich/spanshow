@@ -8,6 +8,7 @@ import 'episode_screen.dart';
 import 'seasons_screen.dart';
 import 'adventure_page_screen.dart';
 
+
 class ShowsScreen extends StatefulWidget {
   const ShowsScreen({super.key});
 
@@ -71,6 +72,53 @@ class _ShowsScreenState extends State<ShowsScreen> {
       );
     }
     _refreshProgress();
+  }
+
+  Future<void> _openAdventure(BuildContext context, AdventureStory story) async {
+    final progress = await ProgressService.loadAdventureProgress(story.id);
+    final hasRealProgress =
+        progress != null && progress.pageId != story.startPageId;
+
+    if (!context.mounted) return;
+
+    String startPageId = story.startPageId;
+
+    if (hasRealProgress) {
+      final resume = await showDialog<bool>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text(story.title),
+          content: const Text('¿Continuar desde donde lo dejaste?'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: const Text('Empezar de nuevo'),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.pop(ctx, true),
+              child: const Text('Continuar'),
+            ),
+          ],
+        ),
+      );
+      if (resume == null || !context.mounted) return;
+      if (!resume) {
+        await ProgressService.clearAdventureProgress(story.id);
+      } else {
+        startPageId = progress.pageId;
+      }
+    }
+
+    if (!context.mounted) return;
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => AdventurePageScreen(
+          story: story,
+          pageId: startPageId,
+        ),
+      ),
+    );
   }
 
   @override
@@ -157,15 +205,7 @@ class _ShowsScreenState extends State<ShowsScreen> {
             side: BorderSide(
                 color: Theme.of(context).colorScheme.outlineVariant),
           ),
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (_) => AdventurePageScreen(
-                story: story,
-                pageId: story.startPageId,
-              ),
-            ),
-          ),
+          onTap: () => _openAdventure(context, story),
         );
       },
     );
