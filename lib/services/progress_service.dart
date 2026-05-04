@@ -43,6 +43,11 @@ class ProgressService {
     }
   }
 
+  static Future<void> clear(String showId) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_prefix + showId);
+  }
+
   static Future<void> clearAdventureProgress(String storyId) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove(_adventurePrefix + storyId);

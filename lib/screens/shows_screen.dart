@@ -53,18 +53,46 @@ class _ShowsScreenState extends State<ShowsScreen> {
   Future<void> _openShow(BuildContext context, Show show) async {
     final progress = _progressMap[show.id];
     if (progress != null) {
-      await Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (_) => EpisodeScreen(
-            show: show,
-            season: progress.season,
-            episodeNumber: progress.episode,
-            initialParagraphIndex: progress.paragraphIndex,
-            initialScrollOffset: progress.scrollOffset,
-          ),
+      final resume = await showDialog<bool>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text(show.title),
+          content: Text(
+              '¿Continuar desde T${progress.season}E${progress.episode}?'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: const Text('Empezar de nuevo'),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.pop(ctx, true),
+              child: const Text('Continuar'),
+            ),
+          ],
         ),
       );
+      if (resume == null || !context.mounted) return;
+      if (!resume) {
+        await ProgressService.clear(show.id);
+        if (!context.mounted) return;
+        await Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => SeasonsScreen(show: show)),
+        );
+      } else {
+        await Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => EpisodeScreen(
+              show: show,
+              season: progress.season,
+              episodeNumber: progress.episode,
+              initialParagraphIndex: progress.paragraphIndex,
+              initialScrollOffset: progress.scrollOffset,
+            ),
+          ),
+        );
+      }
     } else {
       await Navigator.push(
         context,

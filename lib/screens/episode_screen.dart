@@ -33,6 +33,7 @@ class _EpisodeScreenState extends State<EpisodeScreen> {
   String? _error;
   List<GlobalKey> _paragraphKeys = [];
   int _currentParagraphIndex = 0;
+  bool _skipSaveOnDispose = false;
 
   @override
   void initState() {
@@ -87,9 +88,43 @@ class _EpisodeScreenState extends State<EpisodeScreen> {
     _currentParagraphIndex = newIndex;
   }
 
+  ({int season, int episode})? _nextEpisodeInfo() {
+    final seasons = widget.show.seasons;
+    final sortedSeasons = seasons.keys.toList()..sort();
+    final currentEpisodeCount = seasons[widget.season]!;
+    if (widget.episodeNumber < currentEpisodeCount) {
+      return (season: widget.season, episode: widget.episodeNumber + 1);
+    }
+    final currentSeasonIdx = sortedSeasons.indexOf(widget.season);
+    if (currentSeasonIdx < sortedSeasons.length - 1) {
+      final nextSeason = sortedSeasons[currentSeasonIdx + 1];
+      return (season: nextSeason, episode: 1);
+    }
+    return null;
+  }
+
+  Future<void> _goToNextEpisode(int season, int episode) async {
+    _skipSaveOnDispose = true;
+    await ProgressService.save(
+      widget.show.id,
+      ShowProgress(season: season, episode: episode, paragraphIndex: 0, scrollOffset: 0),
+    );
+    if (!mounted) return;
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (_) => EpisodeScreen(
+          show: widget.show,
+          season: season,
+          episodeNumber: episode,
+        ),
+      ),
+    );
+  }
+
   @override
   void dispose() {
-    if (_episode != null && _scrollController.hasClients) {
+    if (!_skipSaveOnDispose && _episode != null && _scrollController.hasClients) {
       ProgressService.save(
         widget.show.id,
         ShowProgress(
@@ -151,11 +186,33 @@ class _EpisodeScreenState extends State<EpisodeScreen> {
             controller: _scrollController,
             padding: EdgeInsets.fromLTRB(
                 16, 16, 16, 16 + MediaQuery.of(context).padding.bottom),
-            itemCount: episode.paragraphs.length,
-            itemBuilder: (context, index) => ParagraphTile(
-              key: _paragraphKeys[index],
-              paragraph: episode.paragraphs[index],
-            ),
+            itemCount: episode.paragraphs.length + 1,
+            itemBuilder: (context, index) {
+              if (index < episode.paragraphs.length) {
+                return ParagraphTile(
+                  key: _paragraphKeys[index],
+                  paragraph: episode.paragraphs[index],
+                );
+              }
+              final next = _nextEpisodeInfo();
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 32),
+                child: Center(
+                  child: next != null
+                      ? FilledButton.icon(
+                          onPressed: () =>
+                              _goToNextEpisode(next.season, next.episode),
+                          icon: const Icon(Icons.skip_next),
+                          label: Text(
+                              'Siguiente: T${next.season}E${next.episode}'),
+                        )
+                      : Text(
+                          '¡Has completado la serie!',
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                ),
+              );
+            },
           ),
         ),
       ],
