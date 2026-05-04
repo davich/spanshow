@@ -33,12 +33,14 @@ class _EpisodeScreenState extends State<EpisodeScreen> {
   String? _error;
   List<GlobalKey> _paragraphKeys = [];
   int _currentParagraphIndex = 0;
+  double _currentScrollOffset = 0;
   bool _skipSaveOnDispose = false;
 
   @override
   void initState() {
     super.initState();
     _currentParagraphIndex = widget.initialParagraphIndex;
+    _currentScrollOffset = widget.initialScrollOffset;
     _scrollController = ScrollController(
       initialScrollOffset: widget.initialScrollOffset,
     );
@@ -86,6 +88,7 @@ class _EpisodeScreenState extends State<EpisodeScreen> {
       }
     }
     _currentParagraphIndex = newIndex;
+    _currentScrollOffset = _scrollController.offset;
   }
 
   ({int season, int episode})? _nextEpisodeInfo() {
@@ -124,14 +127,14 @@ class _EpisodeScreenState extends State<EpisodeScreen> {
 
   @override
   void dispose() {
-    if (!_skipSaveOnDispose && _episode != null && _scrollController.hasClients) {
+    if (!_skipSaveOnDispose && _episode != null) {
       ProgressService.save(
         widget.show.id,
         ShowProgress(
           season: widget.season,
           episode: widget.episodeNumber,
           paragraphIndex: _currentParagraphIndex,
-          scrollOffset: _scrollController.offset,
+          scrollOffset: _currentScrollOffset,
         ),
       );
     }
