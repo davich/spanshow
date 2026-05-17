@@ -72,14 +72,18 @@ class _EpisodeScreenState extends State<EpisodeScreen> {
 
   void _onScroll() {
     if (_paragraphKeys.isEmpty) return;
-    // Find the last paragraph whose top edge is still above (or at) the top of the screen.
-    // Items scrolled off-screen above have null contexts; items in the viewport are non-null.
     int newIndex = _currentParagraphIndex;
+    bool foundVisible = false;
     for (int i = 0; i < _paragraphKeys.length; i++) {
       final ctx = _paragraphKeys[i].currentContext;
-      if (ctx == null) continue;
+      if (ctx == null) {
+        // Before any visible item, null means recycled and scrolled off the top.
+        if (!foundVisible) newIndex = i;
+        continue;
+      }
       final box = ctx.findRenderObject() as RenderBox?;
       if (box == null) continue;
+      foundVisible = true;
       final dy = box.localToGlobal(Offset.zero).dy;
       if (dy <= 0) {
         newIndex = i;

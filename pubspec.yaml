@@ -66,6 +66,8 @@ flutter:
     - assets/content/flight-of-the-conchords/
     - assets/content/white-lotus/
     - assets/content/the-last-of-us/
+    - assets/content/dispatches-from-elsewhere/
+    - assets/content/westworld/
     - assets/adventures/el-tesoro-perdido/
 
   # An image asset can refer to one or more resolution-specific "variants", see

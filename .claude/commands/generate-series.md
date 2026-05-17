@@ -82,7 +82,17 @@ The file path uses zero-padded numbers: season 1 episode 3 → `s01e03.json`.
 
 After writing, confirm the file was created and print: `✓ s[xx]e[yy]: [Episode Title]`
 
-## Step 4: Update shows.json
+## Step 4: Update pubspec.yaml (new shows only)
+
+If the show was **not previously registered** in shows.json (i.e., you derived a new `id` in Step 1), add the new content directory to `pubspec.yaml` so Flutter includes it in the build.
+
+Find the `assets:` section under `flutter:` in `pubspec.yaml` and add a new line for the show's content directory, keeping it grouped with the other `assets/content/` entries:
+
+```
+    - assets/content/[show-id]/
+```
+
+## Step 5: Update shows.json
 
 After all episodes are written, update `assets/shows.json`:
 
@@ -95,7 +105,7 @@ After all episodes are written, update `assets/shows.json`:
 
 Preserve the existing JSON formatting style (one object per line, consistent spacing).
 
-## Step 5: Report completion
+## Step 6: Report completion
 
 Print a summary:
 - Show name and season
