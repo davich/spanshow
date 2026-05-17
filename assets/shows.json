@@ -4,5 +4,6 @@
   { "id": "flight-of-the-conchords","title": "Flight of the Conchords",  "seasons": { "1": 12, "2": 10 } },
   { "id": "white-lotus",            "title": "The White Lotus",          "seasons": { "2": 7 } },
   { "id": "the-last-of-us",         "title": "The Last of Us",           "seasons": { "1": 9, "2": 7 } },
-  { "id": "westworld",              "title": "Westworld",                "seasons": { "1": 10 } }
+  { "id": "westworld",              "title": "Westworld",                "seasons": { "1": 10 } },
+  { "id": "dispatches-from-elsewhere", "title": "Dispatches from Elsewhere", "seasons": { "1": 10 } }
 ]
